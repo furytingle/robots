@@ -25,6 +25,4 @@ class BasicRobot implements RobotInterface
         $this->speed += $robot->getSpeed();
         $this->weight += $robot->getWeight();
     }
-
-
 }

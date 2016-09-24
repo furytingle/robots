@@ -20,11 +20,11 @@ class RobotFactory
         $this->typeList[] = get_class($robot);
     }
 
-    public function _call($name, $args = null) {
+    public function __call($name, $args) {
 
         $typeName = str_replace(self::CREATE_FUNC, '', $name);
 
-        if (null !== $args) {
+        if (!empty($args)) {
             $result = [];
 
             for ($i = 1; $i < $args[0]; $i++) {
@@ -38,8 +38,10 @@ class RobotFactory
     }
 
     private function createRobot($typeName) {
+
+        $className = self::ROBOTS_NAMESPACE . $typeName;
+
         if (in_array($typeName, $this->typeList)) {
-            $className = self::ROBOTS_NAMESPACE . $typeName;
             return new $className();
         } else {
             throw new \Exception("Unknown robot type, add type before creating");
