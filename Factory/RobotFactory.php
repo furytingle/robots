@@ -27,7 +27,7 @@ class RobotFactory
         if (!empty($args)) {
             $result = [];
 
-            for ($i = 1; $i < $args[0]; $i++) {
+            for ($i = 1; $i <= $args[0]; $i++) {
                 $result[] = $this->createRobot($typeName);
             }
 
