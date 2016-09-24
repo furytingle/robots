@@ -8,7 +8,7 @@ class RobotFactory
 {
     const CREATE_FUNC = 'create';
 
-    const ROBOTS_NAMESPACE = "Robots\\";
+    const ROBOTS_NAMESPACE = 'Robots\\';
 
     protected $typeList;
 
@@ -41,7 +41,7 @@ class RobotFactory
 
         $className = self::ROBOTS_NAMESPACE . $typeName;
 
-        if (in_array($typeName, $this->typeList)) {
+        if (in_array($className, $this->typeList)) {
             return new $className();
         } else {
             throw new \Exception("Unknown robot type, add type before creating");

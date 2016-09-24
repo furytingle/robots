@@ -8,4 +8,6 @@ $factory = new \Factory\RobotFactory();
 
 $factory->addType(new \Robots\MyHydra1());
 
-$hydra = $factory->createMyHydra1();
+$hydra = $factory->createMyHydra1(3);
+
+var_dump($hydra);
